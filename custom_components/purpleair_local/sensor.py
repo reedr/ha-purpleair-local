@@ -13,10 +13,10 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
-    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
     PERCENTAGE,
     SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
     EntityCategory,
+    UnitOfDensity,
     UnitOfPressure,
     UnitOfTemperature,
 )
@@ -87,7 +87,7 @@ def _pm(key: str, field: str, **kwargs) -> PurpleAirSensorDescription:
     return PurpleAirSensorDescription(
         key=key,
         translation_key=key,
-        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        native_unit_of_measurement=UnitOfDensity.MICROGRAMS_PER_CUBIC_METER,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
         value_fn=_field(field),
@@ -137,7 +137,7 @@ SENSORS: tuple[PurpleAirSensorDescription, ...] = (
         key="pm2_5_epa",
         translation_key="pm2_5_epa",
         device_class=SensorDeviceClass.PM25,
-        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        native_unit_of_measurement=UnitOfDensity.MICROGRAMS_PER_CUBIC_METER,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
         value_fn=_epa_pm25,
