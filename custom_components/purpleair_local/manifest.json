@@ -1,0 +1,12 @@
+{
+  "domain": "purpleair_local",
+  "name": "PurpleAir Local",
+  "codeowners": ["@reedr"],
+  "config_flow": true,
+  "documentation": "https://github.com/reedr/ha-purpleair-local",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/reedr/ha-purpleair-local/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

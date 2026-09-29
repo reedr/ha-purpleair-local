@@ -1,0 +1,158 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "PurpleAir sensor",
+        "description": "Enter the IP address or hostname of a PurpleAir sensor on your network.",
+        "data": {
+          "host": "Host"
+        },
+        "data_description": {
+          "host": "The integration polls http://<host>/json."
+        }
+      },
+      "name": {
+        "title": "Name and migration",
+        "description": "This sensor reports its placement as {place}.",
+        "data": {
+          "name": "Name",
+          "legacy_prefix": "Existing entity ID to take over (optional)"
+        },
+        "data_description": {
+          "name": "Device name; entity names are added to it.",
+          "legacy_prefix": "If this sensor is already set up with REST or template sensors, enter the AQI entity ID (for example sensor.outdoor_air). The next step matches the other sensors to it so they keep their entity IDs and history."
+        }
+      },
+      "adopt": {
+        "title": "Take over existing entities",
+        "description": "Each entity ID listed here will be moved to this integration and keep its history, settings, area and labels. Clear a field to create a new entity instead.\n\nBefore setup can finish, remove the REST sensors, template helpers or other sources that currently provide these entities. Setup waits and retries until they are gone.",
+        "data": {
+          "aqi": "AQI",
+          "temperature": "Temperature",
+          "humidity": "Humidity",
+          "dew_point": "Dew point",
+          "pressure": "Pressure",
+          "pm1_0": "PM1.0",
+          "pm2_5": "PM2.5",
+          "pm10_0": "PM10"
+        }
+      },
+      "reconfigure": {
+        "title": "Change host",
+        "data": {
+          "host": "Host"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the sensor.",
+      "invalid_response": "The host did not return PurpleAir JSON.",
+      "invalid_entity_id": "Enter a sensor entity ID, such as sensor.outdoor_air.",
+      "duplicate_entity_id": "The same entity ID is used twice."
+    },
+    "abort": {
+      "already_configured": "This sensor is already configured.",
+      "reconfigure_successful": "The host was updated.",
+      "wrong_device": "That host is a different PurpleAir sensor."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Polling",
+        "data": {
+          "scan_interval": "Polling interval"
+        },
+        "data_description": {
+          "scan_interval": "The sensor averages its readings over 2 minutes, so polling faster than 60 seconds rarely adds information."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "aqi": {
+        "name": "AQI"
+      },
+      "aqi_epa": {
+        "name": "AQI (EPA corrected)"
+      },
+      "pm1_0": {
+        "name": "PM1.0"
+      },
+      "pm2_5": {
+        "name": "PM2.5"
+      },
+      "pm10_0": {
+        "name": "PM10"
+      },
+      "pm2_5_epa": {
+        "name": "PM2.5 (EPA corrected)"
+      },
+      "temperature": {
+        "name": "Temperature"
+      },
+      "humidity": {
+        "name": "Humidity"
+      },
+      "dew_point": {
+        "name": "Dew point"
+      },
+      "pressure": {
+        "name": "Pressure"
+      },
+      "gas_resistance": {
+        "name": "Gas resistance"
+      },
+      "aqi_b": {
+        "name": "AQI channel B"
+      },
+      "pm1_0_b": {
+        "name": "PM1.0 channel B"
+      },
+      "pm2_5_b": {
+        "name": "PM2.5 channel B"
+      },
+      "pm10_0_b": {
+        "name": "PM10 channel B"
+      },
+      "particles_0_3": {
+        "name": "Particles ≥0.3 microns"
+      },
+      "particles_0_5": {
+        "name": "Particles ≥0.5 microns"
+      },
+      "particles_1_0": {
+        "name": "Particles ≥1.0 microns"
+      },
+      "particles_2_5": {
+        "name": "Particles ≥2.5 microns"
+      },
+      "particles_5_0": {
+        "name": "Particles ≥5.0 microns"
+      },
+      "particles_10_0": {
+        "name": "Particles ≥10 microns"
+      },
+      "rssi": {
+        "name": "Signal strength"
+      },
+      "last_restart": {
+        "name": "Last restart"
+      }
+    },
+    "binary_sensor": {
+      "channel_mismatch": {
+        "name": "PM2.5 channel mismatch",
+        "state_attributes": {
+          "pm2_5_a": {
+            "name": "PM2.5 channel A"
+          },
+          "pm2_5_b": {
+            "name": "PM2.5 channel B"
+          }
+        }
+      }
+    }
+  }
+}
