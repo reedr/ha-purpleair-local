@@ -8,7 +8,7 @@
           "host": "Host"
         },
         "data_description": {
-          "host": "The integration polls http://<host>/json."
+          "host": "The integration polls the sensor's local /json endpoint over HTTP."
         }
       },
       "name": {
